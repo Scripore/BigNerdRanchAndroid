@@ -8,6 +8,16 @@ public class Question {
     private int mTextResId;
     private boolean mAnswerTrue;
 
+    public boolean isAnswered() {
+        return mAnswered;
+    }
+
+    public void setAnswered(boolean answered) {
+        mAnswered = answered;
+    }
+
+    private boolean mAnswered;
+
     public int getTextResId() {
         return mTextResId;
     }
@@ -27,5 +37,6 @@ public class Question {
     public Question(int textResId, boolean answerTrue){
         mTextResId = textResId;
         mAnswerTrue = answerTrue;
+        mAnswered = false;
     }
 }

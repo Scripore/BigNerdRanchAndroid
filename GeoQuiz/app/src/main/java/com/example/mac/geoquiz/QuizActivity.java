@@ -65,7 +65,6 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick (View v) {
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 updateQuestion();
-
             }
         });
 
@@ -76,7 +75,6 @@ public class QuizActivity extends AppCompatActivity {
                 mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
                 if (mCurrentIndex < 0) mCurrentIndex = 0;
                 updateQuestion();
-
             }
         });
 
@@ -133,6 +131,7 @@ public class QuizActivity extends AppCompatActivity {
     private void getAnswerVerdict(boolean userPressedTrue) {
 
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+        mQuestionBank[mCurrentIndex].setAnswered(true);
         int messageResId = 0;
 
         if (userPressedTrue == answerIsTrue){
@@ -146,5 +145,14 @@ public class QuizActivity extends AppCompatActivity {
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
+
+        if (mQuestionBank[mCurrentIndex].isAnswered() == true){
+            mTrueButton.setEnabled(false);
+            mFalseButton.setEnabled(false);
+        } else {
+            mTrueButton.setEnabled(true);
+            mFalseButton.setEnabled(true);
+        }
+
     }
 }
