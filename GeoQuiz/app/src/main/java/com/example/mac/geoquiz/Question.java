@@ -7,6 +7,17 @@ package com.example.mac.geoquiz;
 public class Question {
     private int mTextResId;
     private boolean mAnswerTrue;
+    private boolean mAnswered;
+    private boolean mAnsweredCorrectly;
+
+
+    public boolean isAnsweredCorrectly() {
+        return mAnsweredCorrectly;
+    }
+
+    public void setAnsweredCorrectly(boolean answeredCorrectly) {
+        mAnsweredCorrectly = answeredCorrectly;
+    }
 
     public boolean isAnswered() {
         return mAnswered;
@@ -15,8 +26,6 @@ public class Question {
     public void setAnswered(boolean answered) {
         mAnswered = answered;
     }
-
-    private boolean mAnswered;
 
     public int getTextResId() {
         return mTextResId;
@@ -38,5 +47,6 @@ public class Question {
         mTextResId = textResId;
         mAnswerTrue = answerTrue;
         mAnswered = false;
+        mAnsweredCorrectly = false;
     }
 }

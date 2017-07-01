@@ -11,4 +11,6 @@
     <string name="prev_button_desc">Previous button</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
+    <string name="quiz_completion_message">Quiz Completed! Well done!</string>
 </resources>
+

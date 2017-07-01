@@ -18,16 +18,18 @@ public class QuizActivity extends AppCompatActivity {
     private TextView mQuestionTextView;
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private int mCurrentIndex = 0;
+    private int questionsAnswered = 0;
 
 
     private Question[] mQuestionBank = new Question[] {
             new Question(R.string.question_australia, true),
             new Question(R.string.question_oceans, true),
             new Question(R.string.question_mideast, false)
-
     };
 
-    private int mCurrentIndex = 0;
+    private int questionArrayLength = mQuestionBank.length;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,22 +132,29 @@ public class QuizActivity extends AppCompatActivity {
 
     private void getAnswerVerdict(boolean userPressedTrue) {
 
+        questionsAnswered += 1;
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
         mQuestionBank[mCurrentIndex].setAnswered(true);
+        setClickableAnswerButtons();
         int messageResId = 0;
 
         if (userPressedTrue == answerIsTrue){
             messageResId = R.string.correct_toast;
+            mQuestionBank[mCurrentIndex].setAnsweredCorrectly(true);
         } else {
             messageResId = R.string.incorrect_toast;
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+        checkQuizCompletion();
     }
 
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
+        setClickableAnswerButtons();
+    }
 
+    private void setClickableAnswerButtons() {
         if (mQuestionBank[mCurrentIndex].isAnswered() == true){
             mTrueButton.setEnabled(false);
             mFalseButton.setEnabled(false);
@@ -153,6 +162,20 @@ public class QuizActivity extends AppCompatActivity {
             mTrueButton.setEnabled(true);
             mFalseButton.setEnabled(true);
         }
+    }
 
+    private void checkQuizCompletion() {
+        int totalAnsweredCorrectly = 0;
+        float score;
+        if (questionsAnswered == questionArrayLength) {
+            for (Question question : mQuestionBank) {
+                if (question.isAnsweredCorrectly() == true) {
+                    totalAnsweredCorrectly += 1;
+                }
+            }
+            score = (float) totalAnsweredCorrectly / (float) questionArrayLength;
+            Toast.makeText(this, getString(R.string.quiz_completion_message) + "  \n"
+                    + "You've answered " + totalAnsweredCorrectly + " out of " + questionArrayLength + " correctly", Toast.LENGTH_LONG).show();
+        }
     }
 }
