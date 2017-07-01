@@ -1,5 +1,6 @@
 package com.example.mac.geoquiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,6 +15,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private ImageButton mNextButton;
+    private Button mCheatButton;
     private ImageButton mPreviousButton;
     private TextView mQuestionTextView;
     private static final String TAG = "QuizActivity";
@@ -44,6 +46,8 @@ public class QuizActivity extends AppCompatActivity {
 
 
         mTrueButton = (Button) findViewById(R.id.true_button);
+
+
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
@@ -77,6 +81,16 @@ public class QuizActivity extends AppCompatActivity {
                 mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
                 if (mCurrentIndex < 0) mCurrentIndex = 0;
                 updateQuestion();
+            }
+        });
+
+        mCheatButton = (Button) findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v) {
+                boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+                Intent intent = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
+                startActivity(intent);
             }
         });
 

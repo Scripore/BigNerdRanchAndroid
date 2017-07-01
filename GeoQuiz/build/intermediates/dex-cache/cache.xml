@@ -115,7 +115,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="2ac8e770b32a33a81bde7f12cb09e0b7b128799b">
+        sha1="4f99e6691ebbd1aaca2759c033e278a7a2dee6ff">
         <dex dex="/Users/mac/Desktop/BigNerdRanch/GeoQuiz/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ee2f0d34e12843ba68cdcd1be23c4ea1acfbbac8/classes.dex" />
     </item>
     <item
@@ -133,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="546b90953b4cd1cee9534cd313a603f0526876f3">
+        sha1="23e822d9ac58cbfc58f230c375173766ede51607">
         <dex dex="/Users/mac/Desktop/BigNerdRanch/GeoQuiz/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_b2f30b7d1d4eba8f36ce68ac914f2abfdf2daf6d/classes.dex" />
     </item>
     <item
