@@ -29,5 +29,5 @@
     <TextView
         android:id="@+id/show_device_api"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
