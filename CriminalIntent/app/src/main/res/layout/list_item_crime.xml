@@ -9,25 +9,35 @@
 
     <TextView
         android:id="@+id/crime_title"
-        android:layout_width="68dp"
-        android:layout_height="17dp"
+        android:layout_height="wrap_content"
         android:text="Crime Title"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"/>
+        app:layout_constraintRight_toLeftOf="@+id/crime_solved"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/crime_date"
-        android:layout_width="69dp"
-        android:layout_height="17dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Crime Date"
-        tools:layout_editor_absoluteY="24dp"
-        tools:layout_editor_absoluteX="8dp"/>
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/crime_title"
+        app:layout_constraintRight_toLeftOf="@+id/crime_solved"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_solved"
-        android:id="@+id/imageView"
+        android:id="@+id/crime_solved"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

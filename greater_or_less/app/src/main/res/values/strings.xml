@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">greater_or_less</string>
+    <string name="correct">Correct! Good job!</string>
+    <string name="incorrect">Incorrect! Boo!</string>
+</resources>
